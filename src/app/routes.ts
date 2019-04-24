@@ -5,4 +5,8 @@ export const appRoutes: Routes = [
     {
         path: '', pathMatch: 'full', component: HomeComponent 
     },
+    {
+        path: 'home', component: HomeComponent
+    },
+    { path: '**', redirectTo: '' }
 ]
