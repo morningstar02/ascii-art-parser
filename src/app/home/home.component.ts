@@ -11,10 +11,5 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
-  navLinks = [
-    { path: '', label: 'Home' },
-    { path: '', label: 'The Solution' },
-    { path: '', label: 'The Game' },
-  ];
 
 }

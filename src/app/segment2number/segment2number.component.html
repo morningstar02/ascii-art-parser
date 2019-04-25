@@ -1,0 +1,17 @@
+<mat-card>
+  <label id="lbl">Upload ASCII file</label>
+  <input type='file' (change)="fileChanged($event)">
+  
+  <button mat-raised-button color="primary" (click) = "getDigits()">Get Numeric Values</button>
+</mat-card>
+
+
+<mat-form-field [style.fontSize]="12" style="min-width: 500px;">
+  <mat-label>Textfile: </mat-label>
+  <textarea matInput
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="10"
+            cdkAutosizeMinColumns="20"
+            cdkAutosizeMaxRows="20" [(ngModel)]="asciiFile" style="font-family: Consolas;"></textarea>
+</mat-form-field> 

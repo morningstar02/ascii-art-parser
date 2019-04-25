@@ -1,24 +1,12 @@
-<mat-tab-group dynamicHeight>
-  <mat-tab label="First">
+<mat-tab-group dynamicHeight mat-align-tabs="center">
+  <mat-tab label="7-Segment Display to Number">
     <ng-template matTabContent>
-      The First Content
+      <app-segment2number></app-segment2number>
     </ng-template>
   </mat-tab>
-  <mat-tab label="Second">
+  <mat-tab label="Number to 7-Segment Display">
     <ng-template matTabContent>
-      The Second Content
+      <app-number2segment></app-number2segment>
     </ng-template>
   </mat-tab>
 </mat-tab-group>
-
-<nav mat-tab-nav-bar>
-  <a mat-tab-link
-     *ngFor="let link of navLinks"
-     [routerLink]="link.path"
-     routerLinkActive #rla="routerLinkActive"
-     [active]="rla.isActive">
-    {{link.label}}
-  </a>
-</nav>
-
-<router-outlet></router-outlet>
