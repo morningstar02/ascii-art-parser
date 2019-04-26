@@ -8,10 +8,11 @@ import { AsciiService } from '../services/ascii.service'
 })
 export class Segment2numberComponent implements OnInit {
   asciiFile: string = "";
+  arabicNumerals: string = "";
   constructor(private asciiService: AsciiService) { }
 
   public getDigits = () => {
-    this.asciiService.foo();
+    this.arabicNumerals = this.asciiService.compileSegmentedInput(this.asciiFile);
   }
   
   file:any;
@@ -25,10 +26,10 @@ export class Segment2numberComponent implements OnInit {
     let fileReader = new FileReader();
     fileReader.onload = (e) => {
       this.asciiFile = fileReader.result.toString();
-      this.asciiService.compileSegmentedInput(this.asciiFile);
     }
     fileReader.readAsText(this.file);
 }
+
 
   ngOnInit() {
   }

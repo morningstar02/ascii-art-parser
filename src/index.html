@@ -8,6 +8,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+  <script>
+      function downloadNumbers()
+    {
+        var textToDownload = document.getElementById("transformedNumbers").value;
+        var blobbedText = new Blob([textToDownload], {type:"text/plain"});
+        var urlForBlob = window.URL.createObjectURL(blobbedText);
+        var fileNameToSaveAs = 'Invoice Numbers.txt';
+    
+        var downloadLink = document.createElement("a");
+        downloadLink.download = fileNameToSaveAs;
+        downloadLink.innerHTML = "Download File";
+        downloadLink.href = urlForBlob;
+        downloadLink.onclick = destroyClickedElement;
+        downloadLink.style.display = "none";
+        document.body.appendChild(downloadLink);
+    
+        downloadLink.click();
+    }
+    
+    function destroyClickedElement(event)
+    {
+        document.body.removeChild(event.target);
+    }
+
+  </script>
 </head>
 <body>
   <app-root></app-root>

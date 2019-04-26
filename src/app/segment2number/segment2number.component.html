@@ -1,17 +1,55 @@
-<mat-card>
-  <label id="lbl">Upload ASCII file</label>
-  <input type='file' (change)="fileChanged($event)">
-  
-  <button mat-raised-button color="primary" (click) = "getDigits()">Get Numeric Values</button>
-</mat-card>
+<div class="container"
+fxLayout
+fxLayout.xs="column"
+fxLayoutAlign="center"
+fxLayoutGap="10px"
+fxLayoutGap.xs="0">
+  <div class="item item-1" fxFlex="40%">
+    <mat-card>
+      <mat-card-header>
+        <div mat-card-avatar class="ascii-header-image"></div>
+        <mat-card-title>ASCII file</mat-card-title>
+        <mat-card-subtitle>
+          <input type='file' (change)="fileChanged($event)">
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+          <mat-form-field [style.fontSize]="12" style="min-width: 500px;">
+              <mat-label>Seven-Segment Display: </mat-label>
+              <textarea matInput
+                        cdkTextareaAutosize
+                        #autosize="cdkTextareaAutosize"
+                        cdkAutosizeMinRows="10"
+                        cdkAutosizeMinColumns="20"
+                        cdkAutosizeMaxRows="20" [(ngModel)]="asciiFile" style="font-family: Consolas;"></textarea>
+            </mat-form-field>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="item item-2" fxFlex="10%">
+    <button mat-raised-button color="primary" (click) = "getDigits()"  style="margin-top:16%"><mat-icon>offline_bolt</mat-icon> Transform</button>
+  </div>
 
-
-<mat-form-field [style.fontSize]="12" style="min-width: 500px;">
-  <mat-label>Textfile: </mat-label>
-  <textarea matInput
-            cdkTextareaAutosize
-            #autosize="cdkTextareaAutosize"
-            cdkAutosizeMinRows="10"
-            cdkAutosizeMinColumns="20"
-            cdkAutosizeMaxRows="20" [(ngModel)]="asciiFile" style="font-family: Consolas;"></textarea>
-</mat-form-field> 
+  <div class="item item-3" fxFlex>
+        <mat-card>
+            <mat-card-header>
+              <div mat-card-avatar class="integer-header-image"></div>
+              <mat-card-title>Conventional Numbers</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-form-field [style.fontSize]="12" style="min-width: 500px;" class="item item-2">
+                    <mat-label>Arabic Numerals: </mat-label>
+                    <textarea matInput readonly
+                              cdkTextareaAutosize
+                              #autosize="cdkTextareaAutosize"
+                              cdkAutosizeMinRows="10"
+                              cdkAutosizeMinColumns="20"
+                              cdkAutosizeMaxRows="20" [(ngModel)]="arabicNumerals" id="transformedNumbers" style="font-family: Consolas;"></textarea>
+                </mat-form-field>
+            </mat-card-content>
+            <button mat-raised-button color="primary" onclick="downloadNumbers()" style="margin-left:2%"
+            *ngIf="arabicNumerals != ''">Download</button>
+          
+        </mat-card>
+  </div>
+</div>

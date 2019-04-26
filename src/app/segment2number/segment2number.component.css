@@ -1,0 +1,9 @@
+.ascii-header-image {
+    background-image: url('../../assets/arsenalracing.png');
+    background-size: cover;
+  }
+
+.integer-header-image {
+background-image: url('../../assets/512.png');
+background-size: cover;
+}

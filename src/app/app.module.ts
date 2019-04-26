@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { appRoutes } from './routes';
 import { AppComponent } from './app.component';
@@ -23,7 +24,8 @@ import { DigitStore } from './services/digit-store.model';
     BrowserModule,
     MaterialModule,
     RouterModule.forRoot(appRoutes),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FlexLayoutModule
   ],
   providers: [DigitStore],
   bootstrap: [AppComponent]
